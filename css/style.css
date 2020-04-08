@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{
+  cursor: url(../virus.cur), default;
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  background-color: #2E2C2F;
+  color: #F5F9E9
+  width: 100vw;
+}
+
+header{
+  position: fixed;
+  width: 100vw;
+  height: 20vh;
+  z-index: 1000;
+  background-color: #2E2C2F;
+  top: 0;
+  color: #F5F9E9
+}
+
+h1{
+  font-size: 3vw;
+}
+
+hr{
+  max-width: 80vw;
+}
+
+p{
+  font-size: 1vw;
+}
+
+u{
+  text-decoration: none;
+  border-bottom: 2px solid var(--textColor);
+}
+
+.center{
+  text-align: center;
+}
+
+#intro{
+  background-color: #F5F9E9;
+  padding-top: 20vh;
+  z-index: -1000000;
+  margin-bottom: 0;
+  --textColor: #2E2C2F;
+  --colOpp: #F5F9E9;
+  color: var(--textColor);
+}
+
+#para1{
+  background-color: #2E2C2F;
+  --textColor:  #F5F9E9;
+  --colOpp: #2E2C2F;
+  color: var(--textColor);
+}
+
+p{
+  margin-left: 15vw;
+  margin-right: 15vw;
+  text-align: justify;
+  text-align-last: center;
+  margin-bottom: 0;
+}
+
+.animP1{
+  animation-duration: 3s;
+  animation-name: animP1;
+}
+
+@keyframes animP1 {
+  from{
+    color: var(--colOpp);
+  }
+
+  to{
+    color: var(--textColor);
+  }
+}
+
+.animP2{
+  animation-duration: 3s;
+  animation-name: animP2;
+}
+
+@keyframes animP2 {
+  0%{
+    margin-right: 100000vw;
+    margin-left: 0;
+    width: 70vw;
+    color: var(--colOpp);
+  }
+  90%{
+    color: var(--textColor);
+  }
+  100%{
+    margin-right: 15vw;
+    margin-left: 15vw;
+    width: 70vw;
+  }
+}
+
+.animP3{
+  animation-duration: 3s;
+  animation-name: animP3;
+}
+
+@keyframes animP3 {
+  0%{
+    margin-left: 25vw;
+    margin-right: 0;
+    width: 70vw;
+    color: var(--colOpp);
+  }
+  90%{
+    color: var(--textColor);
+  }
+  100%{
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 70vw;
+  }
+}
+
+.animU{
+  animation-duration: 3s;
+  animation-name: animU;
+}
+
+@keyframes animU {
+  from{
+    border-bottom: 2px solid var(--colOpp);
+  }
+  to{
+    border-bottom: 2px solid var(--textColor);
+  }
+}
+
+#transition{
+  height: 5vh;
+  background-color: #706F6F;
+  margin: -10;
+}
