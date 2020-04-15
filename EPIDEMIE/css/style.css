@@ -39,6 +39,8 @@ u{
   border-bottom: 2px solid var(--textColor);
 }
 
+
+
 .center{
   text-align: center;
 }
@@ -53,11 +55,32 @@ u{
   color: var(--textColor);
 }
 
-#para1{
+#def{
   background-color: #2E2C2F;
   --textColor:  #F5F9E9;
   --colOpp: #2E2C2F;
   color: var(--textColor);
+}
+
+a{
+  text-decoration: none;
+  color: var(--colOpp);
+  background-color: var(--textColor);
+}
+
+a:hover{
+  color: var(--textColor);
+  background-color: var(--colOpp);
+}
+
+li{
+  margin-bottom: 1vh;
+  list-style: inside;
+  text-align: center;
+}
+
+strong{
+  color: #A63D40;
 }
 
 p{
