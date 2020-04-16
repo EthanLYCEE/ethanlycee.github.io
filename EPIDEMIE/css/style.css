@@ -10,6 +10,7 @@ body{
   background-color: #2E2C2F;
   color: #F5F9E9
   width: 100vw;
+  margin: 0;
 }
 
 header{
@@ -39,27 +40,36 @@ u{
   border-bottom: 2px solid var(--textColor);
 }
 
-
+h2{
+  text-align: center;
+}
 
 .center{
   text-align: center;
 }
 
-#intro{
+.white{
   background-color: #F5F9E9;
-  padding-top: 20vh;
-  z-index: -1000000;
-  margin-bottom: 0;
   --textColor: #2E2C2F;
   --colOpp: #F5F9E9;
   color: var(--textColor);
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
-#def{
+.black{
   background-color: #2E2C2F;
   --textColor:  #F5F9E9;
   --colOpp: #2E2C2F;
   color: var(--textColor);
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+#intro{
+  padding-top: 20vh;
+  z-index: -1000000;
+  margin-bottom: 0;
 }
 
 a{
@@ -76,6 +86,7 @@ a:hover{
 li{
   margin-bottom: 1vh;
   list-style: inside;
+  font-size: 1vw;
   text-align: center;
 }
 

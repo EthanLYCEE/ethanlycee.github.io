@@ -19,6 +19,9 @@ function loop() {
       if (element.classList.length < 2 && element.tagName == "P"){
         element.classList.add(choose(animPClass));
       }
+      else if (element.classList.length < 2 && element.tagName == "H2"){
+        element.classList.add(choose(animPClass));
+      }
       else if (element.classList.length < 2 && element.tagName == "U"){
         element.classList.add('animU')
       }
