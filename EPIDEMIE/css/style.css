@@ -44,6 +44,7 @@ h2{
   text-align: center;
 }
 
+
 .center{
   text-align: center;
 }
@@ -88,6 +89,7 @@ li{
   list-style: inside;
   font-size: 1vw;
   text-align: center;
+  --delai: 0s;
 }
 
 strong{
@@ -172,6 +174,24 @@ p{
   }
   to{
     border-bottom: 2px solid var(--textColor);
+  }
+}
+
+.animLI{
+  animation-duration: 3s;
+  animation-delay: var(--delai);
+  animation-fill-mode: backwards;
+  animation-name: animLI;
+}
+
+@keyframes animLI {
+  from{
+    margin-top: 2vw;
+    color: var(--colOpp);
+  }
+  to{
+    margin-top: 0;
+    color: var(--textColor);
   }
 }
 

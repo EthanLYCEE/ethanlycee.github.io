@@ -25,8 +25,24 @@ function loop() {
       else if (element.classList.length < 2 && element.tagName == "U"){
         element.classList.add('animU')
       }
+      else if (element.classList.length < 2 && element.tagName == "UL"){
+        var delay = 0
+        element.childNodes.forEach(function(enfant){
+          if (enfant.nodeName == "LI" ){
+            console.log(enfant)
+            delay += 1
+            enfant.style.setProperty("--delai", delay + "s")
+            enfant.classList.add("animLI")
+          }
+        });
+
+      };
     } else {
       element.classList.forEach(function (elem) {
+        if ( elem.tagName == "UL" ){
+          element.childNodes.forEach(function(enf){
+          enf.classList.remove(enf)
+        })}
         element.classList.remove(elem)
       });
       element.classList.add("toAnim");
