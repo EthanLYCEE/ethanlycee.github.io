@@ -200,3 +200,24 @@ p{
   background-color: #706F6F;
   margin: -10;
 }
+
+canvas{
+  background-color: #F5F9E9;
+}
+
+iframe{
+  margin-top: 1vw;
+  border: none;
+  text-align: center;
+}
+
+button{
+  text-decoration: none;
+  color: var(--colOpp);
+  background-color: var(--textColor);
+}
+
+button:hover{
+  color: var(--textColor);
+  background-color: var(--colOpp);
+}

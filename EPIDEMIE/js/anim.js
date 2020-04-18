@@ -1,7 +1,17 @@
-let canvas = document.querySelector('#test');
+let canvas = document.querySelector('#canvas');
 
-canvas.width = 1000;
-canvas.height = 1000;
+canvas.width = 500;
+canvas.height = 500;
+
+var nbSoin = 0
+var nbMort = 0
+var nbInfecte = 1
+
+var e = document.createElement("H3")
+var texte = "IL Y A " + String(nbInfecte) + " INFECTÉ(S). IL Y A " + String(nbSoin) + " SOIGNÉ(S) ET " + String(nbMort) + " MORT(S)."
+e.appendChild(document.createTextNode(texte));
+e.id = "resultat"
+document.getElementById('anim').appendChild(e)
 
 let c = canvas.getContext('2d');
 
@@ -15,7 +25,7 @@ $("#lancer").on("click", function(){
   requestAnimationFrame(bouge);
 });
 
-let rayon = 30;
+let rayon = 5;
 
 function posOuNeg() {
   const r = Math.random();
@@ -31,19 +41,32 @@ function rand(min, max) {
   return min + Math.random() * (max - min);
 }
 
-function centre() {
-  return {
-    x: rand(rayon, canvas.width - rayon),
-    y: rand(rayon, canvas.height - rayon),
-    dx: rand(3,15) * posOuNeg(),
-    dy: rand(3,15) * posOuNeg()
-  };
+function centre(i) {
+  if (i == nbCercles - 1){
+    return {
+      x: rand(rayon, canvas.width - rayon),
+      y: rand(rayon, canvas.height - rayon),
+      dx: rand(3,15) * posOuNeg(),
+      dy: rand(3,15) * posOuNeg(),
+      color: "red",
+      time: new Date().getTime()
+    };
+  } else{
+    return {
+      x: rand(rayon, canvas.width - rayon),
+      y: rand(rayon, canvas.height - rayon),
+      dx: rand(3,5) * posOuNeg(),
+      dy: rand(3,5) * posOuNeg(),
+      color: "blue",
+      time: 0
+    };
+  }
 }
 
 function dessine(o) {
   c.beginPath();
   c.arc(o.x, o.y, rayon, 0, Math.PI*2, false);
-  c.strokeStyle = 'blue';
+  c.strokeStyle = o.color;
   c.stroke();
 }
 
@@ -64,14 +87,35 @@ function maj(o) {
     o.dy = -o.dy;
     o.y = rayon
   }
-  for (let v of cercles) {
+  for (var v of cercles) {
     if (cercles.indexOf(o) != cercles.indexOf(v)){
       if (Math.sqrt((v.x - o.x)**2 + (v.y - o.y)**2) <= rayon*2.1){
-        choc(o,v)
+        if (o.color == "red" && v.color == "blue"){
+          if (Math.floor(rand(1,6)) == 1){
+            choc(o,v)
+          }
+          else {
+            v.color = "red"
+            v.time = new Date().getTime()
+            choc(o,v)
+          }
+        }
+        else if (v.color == "red" && o.color == "blue"){
+          if (Math.floor(rand(1,3)) == 1){
+            o.color == "red"
+            o.time = new Date().getTime()
+            choc(o,v)
+          }
+          else {
+            choc(o,v)
+          }
+        }
+        else {
+          choc(o,v)
+        }
       }
     }
   }
-
   o.x += o.dx;
   o.y += o.dy;
   dessine(o);
@@ -100,22 +144,46 @@ function choc(o, v){
 }
 
 let cercles = [];
+var now = new Date().getTime();
+var isAnInfected = false
 
-
-function bouge() {
+function bouge(){
+  isAnInfected = false
   requestAnimationFrame(bouge);
+  texte = "IL Y A " + String(nbInfecte) + " INFECTÉ(S). IL Y A " + String(nbSoin) + " SOIGNÉ(S) ET " + String(nbMort) + " MORT(S)."
+  document.getElementById('resultat').innerHTML = texte
+  nbInfecte = 0
   if (pause) {return};
   c.clearRect(0, 0, canvas.width, canvas.height);
   for (let o of cercles) {
+    if (o.color == "red"){
+      nbInfecte += 1
+      isAnInfected = true
+      now = new Date().getTime();
+      if (Math.floor(((o.time - now)% (1000*60)) / 1000 ) == -8){
+        var r = Math.floor(rand(1, 101))
+        if (r <= 25){
+          nbMort += 1
+          cercles.splice(cercles.indexOf(o), 1)
+        }
+        else{
+          nbSoin += 1
+          o.color = "purple"
+        }
+      }
+    }
     maj(o);
+  }
+  if (isAnInfected==false){
+    pause = true;
   }
 }
 
 
 bouge();
 
-let nbCercles = 10;
+let nbCercles = 20;
 
 for (let i = 0; i < nbCercles; i++) {
-  cercles.push(centre());
+  cercles.push(centre(i));
 }
