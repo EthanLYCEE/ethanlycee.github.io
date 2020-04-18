@@ -24,6 +24,10 @@ $("#lancer").on("click", function(){
   pause = false;
   requestAnimationFrame(bouge);
 });
+$("#refresh").on("click", function(){
+  window.location.reload()
+});
+
 
 let rayon = 5;
 
