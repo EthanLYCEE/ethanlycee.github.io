@@ -31,10 +31,6 @@ hr{
   max-width: 80vw;
 }
 
-p{
-  font-size: 1vw;
-}
-
 u{
   text-decoration: none;
   border-bottom: 2px solid var(--textColor);
@@ -44,6 +40,10 @@ h2{
   text-align: center;
 }
 
+h4{
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
 
 .center{
   text-align: center;
@@ -97,11 +97,17 @@ strong{
 }
 
 p{
+  font-size: 1.1vw;
   margin-left: 15vw;
   margin-right: 15vw;
   text-align: justify;
   text-align-last: center;
   margin-bottom: 0;
+}
+
+img{
+  max-width: 40vw;
+  border: 3px solid var(--textColor);
 }
 
 .animP1{
@@ -192,6 +198,20 @@ p{
   to{
     margin-top: 0;
     color: var(--textColor);
+  }
+}
+
+.animG{
+  animation-duration: 3s;
+  animation-name: animG;
+}
+
+@keyframes animG{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
   }
 }
 

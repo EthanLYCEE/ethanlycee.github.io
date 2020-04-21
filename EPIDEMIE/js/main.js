@@ -1,5 +1,5 @@
 var scroll = window.requestAnimationFrame ||
-             function(callback){ window.setTimeout(callback, 1000/60)};
+function(callback){ window.setTimeout(callback, 1000/60)};
 var elementsToShow = document.querySelectorAll('.toAnim');
 
 var animPClass = ['animP1','animP2', 'animP3']
@@ -35,39 +35,41 @@ function loop() {
             enfant.classList.add("animLI")
           }
         });
-
-      };
+      }
+      else{
+        element.classList.add('animG')
+      }
     } else {
       element.classList.forEach(function (elem) {
         if ( elem.tagName == "UL" ){
           element.childNodes.forEach(function(enf){
-          enf.classList.remove(enf)
-        })}
-        element.classList.remove(elem)
-      });
-      element.classList.add("toAnim");
-    }
-  });
+            enf.classList.remove(enf)
+          })}
+          element.classList.remove(elem)
+        });
+        element.classList.add("toAnim");
+      }
+    });
 
-  scroll(loop);
-}
-
-loop();
-
-//Fonction pour vérifier si l'élément "el" est visible par l'utilisateur, renvoie "true" ou "false" ( faite à l'aide d'un tuto )
-function isElementInViewport(el) {
-  if (typeof jQuery === "function" && el instanceof jQuery) {
-    el = el[0];
+    scroll(loop);
   }
-  var rect = el.getBoundingClientRect();
-  return (
-    (rect.top <= 0
-      && rect.bottom >= 0)
-    ||
-    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight))
-    ||
-    (rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-  );
-}
+
+  loop();
+
+  //Fonction pour vérifier si l'élément "el" est visible par l'utilisateur, renvoie "true" ou "false" ( faite à l'aide d'un tuto )
+  function isElementInViewport(el) {
+    if (typeof jQuery === "function" && el instanceof jQuery) {
+      el = el[0];
+    }
+    var rect = el.getBoundingClientRect();
+    return (
+      (rect.top <= 0
+        && rect.bottom >= 0)
+        ||
+        (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+        ||
+        (rect.top >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+        );
+      }

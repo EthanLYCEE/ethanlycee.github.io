@@ -50,8 +50,8 @@ function centre(i) {
     return {
       x: rand(rayon, canvas.width - rayon),
       y: rand(rayon, canvas.height - rayon),
-      dx: rand(3,15) * posOuNeg(),
-      dy: rand(3,15) * posOuNeg(),
+      dx: rand(3,4) * posOuNeg(),
+      dy: rand(3,4) * posOuNeg(),
       color: "red",
       time: new Date().getTime()
     };
@@ -59,8 +59,8 @@ function centre(i) {
     return {
       x: rand(rayon, canvas.width - rayon),
       y: rand(rayon, canvas.height - rayon),
-      dx: rand(3,5) * posOuNeg(),
-      dy: rand(3,5) * posOuNeg(),
+      dx: rand(3,4) * posOuNeg(),
+      dy: rand(3,4) * posOuNeg(),
       color: "blue",
       time: 0
     };
@@ -95,7 +95,7 @@ function maj(o) {
     if (cercles.indexOf(o) != cercles.indexOf(v)){
       if (Math.sqrt((v.x - o.x)**2 + (v.y - o.y)**2) <= rayon*2.1){
         if (o.color == "red" && v.color == "blue"){
-          if (Math.floor(rand(1,6)) == 1){
+          if (Math.floor(rand(1,6)) <= 2){
             choc(o,v)
           }
           else {
