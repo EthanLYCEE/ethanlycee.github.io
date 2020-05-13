@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+*{
+    cursor: url(../cursor.cur), default;
+}
+
+header{
+  width: 100vw;
+  height: 10vh;
+  position: absolute;
+  top: 0;
+  background-color: #98B6B1;
+  border-bottom: solid 2px #5F021F;
+}
+
+#enseigne{
+  margin-top: 1vw;
+  color: #5F021F;
+  font-family: 'Pacifico', cursive;
+}
+
+body{
+  font-family: 'Neucha', cursive;
+  margin: 0;
+}
+
+.center{
+  text-align: center
+}
+
+#nbCan{
+  background: none;
+  color: #A47;
+}
+
+img{
+  width: 100vw;
+}
+
+.image{
+  margin-top: 10vh;
+  width: 100vw;
+  height: 40vh;
+  background-image: url(../img/can.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.clicker{
+  margin-top: 5vh;
+}
+
+p{
+  font-size: 25px;
+}
+
+button{
+  background-color: #98B6B1;
+  border: solid 2px #5F021F;
+  color: #5F021F;
+  border-radius: 25px;
+  outline: none;
+}
+
+button:focus {outline:0;}
+
+
+button:disabled{
+  background-color: white;
+  border: solid 2px grey;
+  color: grey;
+}

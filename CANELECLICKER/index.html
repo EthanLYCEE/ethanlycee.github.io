@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>CANELÉ CLICKER</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="">
+  <audio src="sound/furnace.mp3" id="furnace" autoplay="false" loop="false" volume=""></audio>
+  <audio src="sound/music.mp3" id="music" autoplay="true" loop="true" volume=""></audio>
+  <audio src="sound/can.mp3" id="can" autoplay="false" loop="false" volume=""></audio>
+  <audio src="sound/emp.mp3" id="emp" autoplay="false" loop="false" volume=""></audio>
+  <audio src="sound/chef.mp3" id="chefSound" autoplay="false" loop="false" volume=""></audio>
+  <header>
+    <h1 id="enseigne" class="center"><u>Canelé Clicker</u></h1>
+  </header>
+  <div class="center image">
+  </div>
+  <section class="center clicker">
+    <p>Vous avez <span id="nbCan">0</span> canelés.</p>
+    <button type="button" name="button" id="cuisiner" onclick="Cuisine(); canSound()">Cuisiner</button>
+    <button type="button" name="button" disabled="true" id="NouvFour" onclick="NouveauFour(); four()">Acheter un four (25 canelés)</button>
+    <button type="button" name="button" disabled="false" style="display:none" id="AutoCanelé" onclick="NouveauEmpl(); empSound()">Embaucher un employer (100 canelés)</button>
+    <button type="button" name="button" disabled="false" style="display:none" id="Chef" onclick="NouveauChef(); chefSound()">Embaucher un chef d'équipe (150 canelés)</button>
+  </section>
+</div>
+
+<script src="js/sound.js"></script>
+</body>
+</html>
